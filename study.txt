@@ -1,0 +1,10 @@
+1.使用Java的方式搭建Springmvc
+https://blog.csdn.net/cd18333612683/article/details/79130683
+https://blog.csdn.net/w_x_z_/article/details/53336530
+
+
+2.spring上下文和springMVC上下文的关系
+https://blog.csdn.net/MOVIE14/article/details/78719704
+
+3.@EnableWebMvc
+https://www.cnblogs.com/duanxz/p/4875153.html
