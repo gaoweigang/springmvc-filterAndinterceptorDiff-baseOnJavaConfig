@@ -17,11 +17,12 @@ import org.springframework.web.servlet.view.JstlView;
 import java.util.List;
 
 /**
+ * SpringMVC子容器
+ *
  * 1.想要使用Java配置的方式搭建Springmvc,只需要将@EnableWebMvc添加到你的一个@Configuration class即可,使用这种方式后就
  * 不需要再配置web.xml文件了
  * 2.在这里为什么实现WebMvcConfigurer？
  * 想要以Java形式定制默认的配置，你可以简单的实现WebMvcConfigurer接口，根据需要配置，或者继承WebMvcConfigurerAdapter并重写需要的方法：
-
  */
 @Configuration
 @EnableWebMvc // 启用SpringMVC

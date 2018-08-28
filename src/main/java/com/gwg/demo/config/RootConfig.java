@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 /**
- * Spring的容器中
+ * Spring容器，为了简化配置将所有Bean放到SpringMVC子容器中
  */
 @Configuration
 @Order(Integer.MIN_VALUE)
