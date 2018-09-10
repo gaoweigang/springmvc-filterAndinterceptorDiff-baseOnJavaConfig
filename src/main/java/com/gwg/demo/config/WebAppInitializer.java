@@ -1,6 +1,12 @@
 package com.gwg.demo.config;
 
+import com.gwg.demo.filter.OneFilter;
+import com.gwg.demo.filter.TwoFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+import javax.servlet.Filter;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
 
 /**
  * 配置DispatcherServlet
@@ -40,4 +46,12 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
 		return new String[] {"/"}; // 将dispatcherServlet映射到“/”
 	}
 
+	/**
+	 * javaConfig的形式配置过滤器
+	 * @return
+	 */
+	@Override
+	protected Filter[] getServletFilters() {
+		return new Filter[]{new OneFilter(), new TwoFilter()};
+	}
 }

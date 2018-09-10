@@ -8,3 +8,7 @@ https://blog.csdn.net/MOVIE14/article/details/78719704
 
 3.@EnableWebMvc
 https://www.cnblogs.com/duanxz/p/4875153.html
+
+4.Springmvc访问静态资源
+https://blog.csdn.net/xichenguan/article/details/52794862
+

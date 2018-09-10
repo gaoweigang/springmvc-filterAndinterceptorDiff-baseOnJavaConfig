@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/springmvc-baseOnJavaConfig.iml" filepath="$PROJECT_DIR$/springmvc-baseOnJavaConfig.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springmvc-filterAndinterceptorDiff-baseOnJavaConfig.iml" filepath="$PROJECT_DIR$/springmvc-filterAndinterceptorDiff-baseOnJavaConfig.iml" />
     </modules>
   </component>
 </project>

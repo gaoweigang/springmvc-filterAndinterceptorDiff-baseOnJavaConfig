@@ -1,5 +1,7 @@
 package com.gwg.demo.config;
 
+import com.gwg.demo.interceptor.OneInterceptor;
+import com.gwg.demo.interceptor.TwoInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -29,36 +31,35 @@ import java.util.List;
 @ComponentScan("com.gwg.demo.controller")//Controller添加到SpringMVC的容器中，在这里不能添加到Spring的容器中，否者服务找不到。SpringMVC的容器可以访问Spring的容器中的Bean
 public class WebConfig extends WebMvcConfigurerAdapter {
 
+    /** 视图解析器 */
+    @Bean
+    public InternalResourceViewResolver viewResolver(){
+        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+        viewResolver.setPrefix("/WEB-INF/views/"); // 运行时的目录结构
+        viewResolver.setSuffix(".jsp");
+        //viewResolver.setViewClass(JstlView.class);
+        return viewResolver;
+    }
+
     /**
      * Java形式注册拦截器：
      * @param interceptorRegistry
      */
     @Override
     public void addInterceptors(InterceptorRegistry interceptorRegistry) {
+        interceptorRegistry.addInterceptor(new OneInterceptor());
+        interceptorRegistry.addInterceptor(new TwoInterceptor()).addPathPatterns("/test.html");
 
     }
 
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry resourceHandlerRegistry) {
-
-    }
 
     /**
-     * 跨域处理
-     * @param corsRegistry
+     * 配置静态资源映射
+     * @param resourceHandlerRegistry
      */
     @Override
-    public void addCorsMappings(CorsRegistry corsRegistry) {
-        //添加映射路径
-        corsRegistry.addMapping("/**")
-                //放行哪些原始域
-                .allowedOrigins("http://localhost:3000")
-                //是否发送Cookie信息
-                .allowCredentials(true)
-                 //放行哪些原始域(请求方式)
-                .allowedMethods("GET","POST", "PUT", "DELETE", "OPTIONS")
-                //放行哪些原始域(头部信息)
-                .allowedHeaders("Content-Type", "Access-Control-Allow-Headers", "Authorization", "X-Requested-With");
+    public void addResourceHandlers(ResourceHandlerRegistry resourceHandlerRegistry) {
+        resourceHandlerRegistry.addResourceHandler("/**").addResourceLocations("classpath:/static/");
 
     }
 
